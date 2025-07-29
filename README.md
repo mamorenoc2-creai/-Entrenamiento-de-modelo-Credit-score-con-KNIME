@@ -28,6 +28,7 @@ Aquí viene la motivación de usar KNIME para construir un modelo de clasificaci
 
 ### 1. **Importación de datos**  
 ![Texto alternativo](images/File_reader.png)
+
    - Aquí se hace la lectura del conjunto de datos desde archivo `.csv`.
    - Como resultado de este nodo se tiene la visualización de las variables de la data
 ![til](images/Gif_data.gif)
@@ -37,18 +38,23 @@ Aquí viene la motivación de usar KNIME para construir un modelo de clasificaci
 
 ### 2. **Preprocesamiento**
 ![Texto alternativo](images/Preprocessin.png)
+
    - Aquí se hace la asignación de la columna 20 como columna Target para que el modelo pueda entrenarse entorno a esta variable, donde :
+
    ![til](images/Gif_preprocessing.gif)
+
       - "1" = credit-worthy
       - "2" = risky.
 
 ### 3. **Partición de datos**
 ![Texto alternativo](images/Table_partitioner.png)
+
    - En este punto se hace la partición de los datos totales (1000 datos) donde el 80% entrenamiento / 20% prueba
    - El sampling es estratificado para mantener proporción de clases.
 
 ### 4. **Entrenamiento del modelo**
 ![Texto alternativo](images/Random_forest_learner.png)
+
 Aquí se hace el entrenamiento del modelo con estas variables:
    - Modelo: `Random Forest Learner`
    - Parámetros clave:
@@ -63,6 +69,7 @@ Se pueden escoger cierta manualmente las columnas que son necesarias para el ent
 
 ### 5. **Evaluación del modelo**
 ![Texto alternativo](images/Random_forest_predictor.png)
+
 Una vez entrenado el modelo de Random Forest, realizamos la evaluación sobre el 20% de datos de prueba utilizando los siguientes componentes de KNIME:
 
    - Métricas generadas:
@@ -86,6 +93,7 @@ Luego de aplicar el modelo sobre nuevos datos, el flujo de KNIME genera columnas
 
 ### 6. **Exportación del modelo**
 ![Texto alternativo](images/Model_writer.png)
+
 Uno de los mayores beneficios es la exportación del modelo a través de un nodo de **Model Writer**, donde puedo exportar el proyecto usarlo en otros flujos de proyectos KNIME e incluso usarlos en otros proyectos que se necesita un modelo predictivo. 
 
 ---
